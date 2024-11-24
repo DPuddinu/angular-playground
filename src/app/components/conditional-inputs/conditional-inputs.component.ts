@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import {
   ControlContainer,
   FormControl,
@@ -34,8 +34,8 @@ type City = 'rome' | 'paris' | 'newYork';
 
       <label for="arrival">arrival</label>
       <select id="arrivals" name="arrival" formControlName="arrival">
-        @for (departure of departures[selectedCity]; track departure) {
-        <option value="{{ departure }}">{{ departure }}</option>
+        @for (arrival of arrivals(); track arrival) {
+        <option value="{{ arrival }}">{{ arrival }}</option>
         } @empty {
         <li>There are no cities.</li>
         }
@@ -47,8 +47,8 @@ type City = 'rome' | 'paris' | 'newYork';
 })
 export class ConditionalInputsComponent {
   cities = ['rome', 'paris', 'newYork'] as const;
-  selectedCity: City = 'rome';
-
+  selectedCity = signal<City>('rome') 
+  arrivals = computed(() => this.departures[this.selectedCity()]);
   parentContainer = inject(ControlContainer);
   departures: Record<City, string[]> = {
     rome: ['milan', 'naples'],
@@ -58,7 +58,7 @@ export class ConditionalInputsComponent {
 
   onSelectCity(event: Event) {
     const selected = (event.target as HTMLSelectElement).value as City;
-    this.selectedCity = selected;
+    this.selectedCity.set(selected);
     this.parentFormGroup.get('route.arrival')?.reset();
   }
   get parentFormGroup() {
