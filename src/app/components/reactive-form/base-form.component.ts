@@ -37,14 +37,14 @@ import { DestinationInputComponent } from '../reactive-input/name-input.componen
 export class BaseFormComponent {
   flightForm = new FormGroup({
     flightDetails: new FormGroup({
-      origin: new FormControl(['', Validators.required]),
+      origin: new FormControl('', Validators.required),
       departure: new FormGroup({
-        date: new FormControl(['', Validators.required]),
-        time: new FormControl(['', Validators.required]),
+        date: new FormControl('', Validators.required),
+        time: new FormControl('', Validators.required),
       }),
       arrival: new FormGroup({
-        date: new FormControl(['', Validators.required]),
-        time: new FormControl(['', Validators.required]),
+        date: new FormControl('', Validators.required),
+        time: new FormControl('', Validators.required),
       }),
     }),
   });

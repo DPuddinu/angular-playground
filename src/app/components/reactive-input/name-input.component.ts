@@ -10,6 +10,7 @@ import {
   FormGroup,
   FormGroupName,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -31,7 +32,7 @@ export class DestinationInputComponent {
   }
 
   ngOnInit() {
-    this.parentFormGroup.addControl('destination', new FormControl(''));
+    this.parentFormGroup.addControl('destination', new FormControl('', Validators.required));
   }
 
   ngOnDestroy() {
