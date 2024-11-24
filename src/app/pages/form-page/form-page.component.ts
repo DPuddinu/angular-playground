@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BaseFormComponent } from '../../components/base-form/base-form.component';
+import { BaseFormComponent } from '../../components/reactive-form/base-form.component';
 
 @Component({
   selector: 'app-form-page',
