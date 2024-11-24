@@ -4,9 +4,9 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
-import { DestinationInputComponent } from "../name-input/name-input.component";
+import { DestinationInputComponent } from '../reactive-input/name-input.component';
 
 @Component({
   selector: 'app-base-form',
@@ -16,9 +16,7 @@ import { DestinationInputComponent } from "../name-input/name-input.component";
       <div formGroupName="flightDetails">
         <label for="origin">Origin</label>
         <input id="origin" type="text" formControlName="origin" />
-        <app-destination-input
-          [control]="destinationControl"
-        ></app-destination-input>
+        <app-destination-input></app-destination-input>
 
         <div formGroupName="departure">
           <input type="datetime-local" formControlName="date" />
@@ -40,7 +38,6 @@ export class BaseFormComponent {
   flightForm = new FormGroup({
     flightDetails: new FormGroup({
       origin: new FormControl(['', Validators.required]),
-      destination: new FormControl(['', Validators.required]),
       departure: new FormGroup({
         date: new FormControl(['', Validators.required]),
         time: new FormControl(['', Validators.required]),
@@ -50,24 +47,8 @@ export class BaseFormComponent {
         time: new FormControl(['', Validators.required]),
       }),
     }),
-    // passengers: new FormGroup({
-    //   count: new FormControl(''),
-    //   details: new FormArray([
-    //     new FormGroup({
-    //       firstName: new FormControl(''),
-    //       lastName: new FormControl(''),
-    //       dateOfBirth: new FormControl(''),
-    //     }),
-    //   ]),
-    // }),
   });
 
-  get destinationGroup() {
-    return this.flightForm.get('flightDetails') as FormGroup;
-  }
-  get destinationControl() {
-    return this.flightForm.get('flightDetails.destination') as FormControl;
-  }
   // get passengers() {
   //   return this.flightForm.get('passengers.details') as FormArray;
   // }

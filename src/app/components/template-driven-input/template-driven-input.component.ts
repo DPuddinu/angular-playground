@@ -1,5 +1,5 @@
-import { Component, Input, input } from '@angular/core';
-import { ControlContainer, FormsModule, NgForm, NgModel } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { ControlContainer, FormsModule, NgForm } from '@angular/forms';
 import { Actor } from '../template-driven-form/template-driven-form.component';
 
 @Component({
