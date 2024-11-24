@@ -1,16 +1,20 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { DestinationInputComponent } from '../reactive-input/name-input.component';
+import { ConditionalInputsComponent } from '../conditional-inputs/conditional-inputs.component';
 
 @Component({
   selector: 'app-base-form',
-  imports: [ReactiveFormsModule, DestinationInputComponent],
+  imports: [
+    ReactiveFormsModule,
+    DestinationInputComponent,
+    ConditionalInputsComponent
+  ],
   template: `
     <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
       <div formGroupName="flightDetails">
@@ -27,6 +31,7 @@ import { DestinationInputComponent } from '../reactive-input/name-input.componen
           <input type="datetime-local" formControlName="date" />
           <input type="datetime-local" formControlName="time" />
         </div>
+        <app-conditional-inputs></app-conditional-inputs>
       </div>
       <button type="submit">Book Flight</button>
     </form>
@@ -49,12 +54,8 @@ export class BaseFormComponent {
     }),
   });
 
-  // get passengers() {
-  //   return this.flightForm.get('passengers.details') as FormArray;
-  // }
-
   onSubmit() {
-    console.log(this.flightForm.getRawValue());
+    console.log(this.flightForm.value);
     // save the form data
   }
 }
