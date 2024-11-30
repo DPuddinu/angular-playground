@@ -10,8 +10,19 @@ import {
   selector: 'app-login-page',
   imports: [ReactiveFormsModule],
   template: `
-    <div class="flex flex-col items-center justify-center h-screen">
-      <h1>Login</h1>
+    <div class="space-y-4">
+      <form [formGroup]="loginForm">
+        <label for="username">Username</label>
+        <input formControlName="username" type="email" placeholder="Email" />
+        @if(loginForm.controls.username.hasError('email')) {
+          <p class="text-red-500">Invalid email</p>
+        }
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" placeholder="Password" />
+        @if(loginForm.controls.password.hasError('minlength')) {
+          <p class="text-red-500">Password must be at least 12 characters long</p>
+        }
+      </form>
     </div>
   `,
   styleUrl: './login-page.component.css',
