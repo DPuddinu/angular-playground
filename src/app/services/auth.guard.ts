@@ -12,8 +12,6 @@ export const authGuard = () => {
       if (isAuthenticated) {
         return true;
       }
-      
-      // Redirect to login if not authenticated
       return router.createUrlTree(['/login']);
     })
   );

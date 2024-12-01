@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
 import { environment } from '@/environments/environment';
-import { BehaviorSubject, map, tap } from 'rxjs';
+import { HttpClient, HttpContext } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, tap } from 'rxjs';
+import { SKIP_INTERCEPTOR } from './context/skip-interceptor-token';
 
 export interface LoginResponse {
   record: {
@@ -47,6 +48,9 @@ export class AuthService {
         {
           identity: username,
           password: password,
+        },
+        {
+          context: new HttpContext().set(SKIP_INTERCEPTOR, true),
         }
       )
       .pipe(
