@@ -13,12 +13,13 @@ export class AuthService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
+
   login(username: string, password: string) {
     return this.httpClient.post(
       `${this.pocketbaseUrl}/api/collections/_superusers/auth-with-password`,
       {
-        email: username,
-        password: password,
+        identity: username,
+        password: password
       }
     );
   }
