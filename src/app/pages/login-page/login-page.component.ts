@@ -17,7 +17,7 @@ import {
     <form [formGroup]="loginForm" class="flex flex-col gap-4 w-fit [&>label]:text-sm [&>label]:font-medium [&>label]:text-white" (ngSubmit)="login()">
       <label for="username">Username</label>
       <input formControlName="username" type="email" placeholder="Email" />
-      @if(loginForm.controls.username.hasError('email')) {
+      @if(loginForm.controls.username.hasError('email') && loginForm.controls.username.touched) {
       <p class="text-red-500">Invalid email</p>
       }
       <label for="password">Password</label>
@@ -26,7 +26,7 @@ import {
         type="password"
         placeholder="Password"
       />
-      @if(loginForm.controls.password.hasError('minlength')) {
+      @if(loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched) {
       <p class="text-red-500">Password must be at least 12 characters long</p>
       }
       <button class="bg-blue-500 text-white p-2 rounded-md">Login</button>
@@ -47,6 +47,7 @@ export class LoginPageComponent {
  
   login() {
     if (this.loginForm.valid) {
+      console.log('login');
       this.authService.login(
         this.loginForm.controls.username.value!,
         this.loginForm.controls.password.value!
