@@ -5,9 +5,9 @@ import { Difficulty, QUESTIONS } from '../data/questions';
   providedIn: 'root',
 })
 export class QuizService {
-  private currentQuestionIndex = signal<number>(0);
-  private score = signal<number>(0);
   private selectedDifficulty = signal<Difficulty>('beginner');
+  private currentQuestionIndex = signal<number>(Math.floor(Math.random() * QUESTIONS[this.selectedDifficulty()].length));
+  private score = signal<number>(0);
 
   currentQuestion = computed(() => QUESTIONS[this.selectedDifficulty()][this.currentQuestionIndex()]);
   currentScore = computed(() => this.score());

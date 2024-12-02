@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, inject, NgZone, OnDestroy, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { QuizService } from '../../services/quiz.service';
 import { Difficulty, difficultyLevels } from '../../data/questions';
+import { QuizService } from '../../services/quiz.service';
 
 @Component({
   selector: 'app-quiz',
@@ -20,7 +20,7 @@ import { Difficulty, difficultyLevels } from '../../data/questions';
           class="border rounded p-2 mb-4"
         >
           @for (difficulty of levels; track difficulty) {
-          <option [value]="difficulty">{{ difficulty }}</option>
+          <option [value]="difficulty">{{ difficulty | titlecase }}</option>
           }
         </select>
 
