@@ -8,23 +8,11 @@
     @apply bg-primary text-primary-content;
   }
 
-  /* Dark mode when checkbox is checked */
-  #theme-toggle:checked ~ * {
-    @apply bg-dark-primary text-dark-primary-content;
-  }
-
   /* Dark mode based on system preference, but only if checkbox is not checked */
   @media (prefers-color-scheme: dark) {
-    body:has(#theme-toggle:not(:checked)) {
+    body {
       @apply bg-dark-primary text-dark-primary-content;
     }
   }
 
-  /* Hide the checkbox but keep it accessible */
-  #theme-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    /* You can style the checkbox or its label here */
-  }
 }
