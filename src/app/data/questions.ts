@@ -1081,9 +1081,10 @@ const ADVANCED_QUESTIONS: Question[] = [
       "Incremental DOM is Angular's rendering engine that updates the DOM efficiently by tracking changes at the element level instead of using a virtual DOM.",
   },
 ];
-
-export const QUESTIONS: Question[] = [
-  ...BEGINNER_QUESTIONS,
-  ...INTERMEDIATE_QUESTIONS,
-  ...ADVANCED_QUESTIONS,
-];
+export const difficultyLevels = ['beginner', 'intermediate', 'advanced'] as const;
+export type Difficulty = (typeof difficultyLevels)[number];
+export const QUESTIONS: Record<Difficulty, Question[]> = {
+  beginner: BEGINNER_QUESTIONS,
+  intermediate: INTERMEDIATE_QUESTIONS,
+  advanced: ADVANCED_QUESTIONS,
+};

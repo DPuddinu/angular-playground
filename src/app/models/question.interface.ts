@@ -1,8 +1,10 @@
+import { Difficulty } from "../data/questions";
+
 export interface Question {
   id: number;
   text: string;
   options: string[];
   correctAnswer: number;
-  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  difficulty: Difficulty;
   explanation: string;
 } 
