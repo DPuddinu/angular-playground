@@ -19,8 +19,6 @@ import { PostsResolverResponse } from '../../resolvers/posts.resolver';
             {{ todo.message }}
           </div>
         }
-      } @else {
-        <div class="text-gray-500">Loading...</div>
       }
     </div>
   `,

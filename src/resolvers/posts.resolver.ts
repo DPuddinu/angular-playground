@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { catchError, map, of } from 'rxjs';
+import { catchError, map, of, throwError } from 'rxjs';
 import { Post } from '../types/Post';
 
 export type PostsResolverResponse =
@@ -21,7 +21,9 @@ export const postsResolver: ResolveFn<PostsResolverResponse> = (
   const http = inject(HttpClient);
   return http
     .get<Post[]>(
-      `https://jsonplaceholder.typicode.com/todos/${route.params['id']}`
+      route.params['id'] === '3' 
+        ? 'https://invalid-url-to-trigger-error'
+        : `https://jsonplaceholder.typicode.com/todos/${route.params['id']}`
     )
     .pipe(
       map((data) => ({ status: 'success', data } as PostsResolverResponse)),
