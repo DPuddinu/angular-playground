@@ -4,39 +4,52 @@ import { CurrencyPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [TableComponent, NgIf, CurrencyPipe],
-  template: `<!-- No templates provided, will use default layout -->
-    <app-table [data]="employees"></app-table>
+  standalone: true,
+  imports: [TableComponent, CurrencyPipe],
+  template: `
+    <div class="p-4">
+      <h1 class="text-2xl font-bold mb-4">Angular Table Demo</h1>
+      
+      <div class="space-y-8">
+        <!-- Basic table -->
+        <div>
+          <h2 class="text-xl font-semibold mb-2">Employees</h2>
+          <app-table [data]="employees"></app-table>
+        </div>
 
-    <!-- Basic configured template -->
-    <app-table [data]="employees">
-      <ng-template #headers>
-        <th>First</th>
-        <th>Last</th>
-      </ng-template>
-    </app-table>
-
-    <!-- Highly configured template with conditional elements -->
-    <app-table [data]="inventory">
-      <ng-template #headers>
-        <th>Item</th>
-        <th>Price</th>
-        <th></th>
-        <th></th>
-      </ng-template>
-      <ng-template #rows let-row>
-        <td>{{ row.name }}</td>
-        <td>{{ row.price | currency : row.currency }}</td>
-        <td>
-          <button *ngIf="row.inStock > 0" (click)="purchaseItem(row.plu)">
-            Buy now
-          </button>
-        </td>
-        <td>
-          <button>Delete</button>
-        </td>
-      </ng-template>
-    </app-table>`,
+        <!-- Inventory table -->
+        <div>
+          <h2 class="text-xl font-semibold mb-2">Inventory</h2>
+          <app-table [data]="inventory">
+            <ng-template #headers>
+              <th class="p-2">Item</th>
+              <th class="p-2">Price</th>
+              <th class="p-2"></th>
+              <th class="p-2"></th>
+            </ng-template>
+            <ng-template #rows let-row>
+              <td class="p-2">{{ row.name }}</td>
+              <td class="p-2">{{ row.price | currency : row.currency }}</td>
+              <td class="p-2">
+                @if (row.inStock > 0) {
+                  <button 
+                    class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                    (click)="purchaseItem(row.plu)">
+                    Buy now
+                  </button>
+                }
+              </td>
+              <td class="p-2">
+                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                  Delete
+                </button>
+              </td>
+            </ng-template>
+          </app-table>
+        </div>
+      </div>
+    </div>
+  `,
   styleUrl: './app.component.css',
 })
 export class AppComponent {
