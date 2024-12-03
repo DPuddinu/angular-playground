@@ -1080,6 +1080,258 @@ const ADVANCED_QUESTIONS: Question[] = [
     explanation:
       "Incremental DOM is Angular's rendering engine that updates the DOM efficiently by tracking changes at the element level instead of using a virtual DOM.",
   },
+  {
+    id: 171,
+    text: 'What is Angular Ivy and how does it improve the Angular framework?',
+    options: [
+      'A new CLI tool',
+      'A new testing library',
+      'A new rendering engine',
+      'A new routing module',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'Angular Ivy is a new rendering engine for Angular, which improves speed, reduces bundle size, and makes the framework more flexible and extensible.',
+  },
+  {
+    id: 172,
+    text: 'Explain the purpose and use cases of Angular Elements.',
+    options: [
+      'For styling components',
+      'For testing components',
+      'For integrating Angular components into non-Angular projects',
+      'For optimizing performance',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'Angular Elements allows developers to use Angular components within projects built on different frameworks or without a framework at all, by packaging them as custom elements.',
+  },
+  {
+    id: 173,
+    text: 'What are the main differences between Renderer2 and Renderer3 in Angular?',
+    options: [
+      'Renderer3 is for AngularJS compatibility',
+      'Renderer3 is the Ivy renderer with improved performance',
+      'Renderer2 is deprecated',
+      'Renderer3 supports React components',
+    ],
+    correctAnswer: 1,
+    difficulty: 'advanced',
+    explanation:
+      'Renderer3, introduced with Ivy, is designed for better performance and smaller bundle sizes compared to Renderer2.',
+  },
+  {
+    id: 174,
+    text: 'Describe the use and advantages of Angular Service Workers.',
+    options: [
+      'To make the app responsive',
+      'To enable server-side rendering',
+      'To enable PWA features like offline support and caching',
+      'To improve component interaction',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'Angular Service Workers are used to create Progressive Web Applications (PWAs) by providing features like offline support, caching, and background sync.',
+  },
+  {
+    id: 175,
+    text: 'How does Angular handle dependency injection and what are the benefits?',
+    options: [
+      'Using a decorator pattern',
+      'Using modules and services',
+      'Using constructor functions',
+      'Using templates and views',
+    ],
+    correctAnswer: 1,
+    difficulty: 'advanced',
+    explanation:
+      'Angular handles dependency injection using a hierarchical injector system that provides services at various levels of the application, which enhances modularity and testability.',
+  },
+  {
+    id: 176,
+    text: 'Explain the concept of zone.js and its role in Angular.',
+    options: [
+      'For handling change detection',
+      'For handling routing',
+      'For handling forms',
+      'For handling animations',
+    ],
+    correctAnswer: 0,
+    difficulty: 'advanced',
+    explanation:
+      'Zone.js is a library that helps Angular manage and detect asynchronous operations, thus simplifying change detection.',
+  },
+  {
+    id: 177,
+    text: 'What are Angular Schematics and how are they used?',
+    options: [
+      'For routing',
+      'For automating code generation',
+      'For testing',
+      'For styling',
+    ],
+    correctAnswer: 1,
+    difficulty: 'advanced',
+    explanation:
+      'Angular Schematics are templates used to generate or modify code automatically, which enhances developer productivity.',
+  },
+  {
+    id: 178,
+    text: 'How does Angular support lazy loading and why is it beneficial?',
+    options: [
+      'Through the Angular CLI',
+      'Through modules and the router',
+      'Through component inheritance',
+      'Through service workers',
+    ],
+    correctAnswer: 1,
+    difficulty: 'advanced',
+    explanation:
+      'Angular supports lazy loading through modules and the router by loading feature modules only when they are needed, which reduces initial load time and improves performance.',
+  },
+  {
+    id: 179,
+    text: 'What is the purpose of the HttpClientModule in Angular?',
+    options: [
+      'To handle form validation',
+      'To provide animations',
+      'To make HTTP requests',
+      'To support internationalization',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'HttpClientModule is used to make HTTP requests to APIs, handle responses, and intercept requests and responses.',
+  },
+  {
+    id: 180,
+    text: 'Explain the Angular lifecycle hooks and their typical use cases.',
+    options: [
+      'To control service injection',
+      'To handle routing',
+      'To manage component lifecycles',
+      'To handle form submissions',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      "Angular lifecycle hooks (e.g., OnInit, OnChanges, OnDestroy) are methods that allow developers to tap into key moments in a component's lifecycle to perform initialization, cleanup, or respond to changes.",
+  },
+  {
+    id: 181,  
+    text: 'How can you optimize an Angular application for better performance?',
+    options: [
+      'By using React',
+      'By using decorators',
+      'By using a monolithic architecture',
+      'By employing techniques such as lazy loading, Ahead-of-Time (AOT) compilation, and change detection strategy',
+    ],
+    correctAnswer: 3,
+    difficulty: 'advanced',
+    explanation:
+      'Optimizing an Angular application involves techniques like lazy loading, AOT compilation, optimizing change detection strategies, using OnPush strategy, and minimizing payload sizes.',
+  },
+  {
+    id: 182,
+    text: 'What is NgZone and how does it facilitate change detection in Angular?',
+    options: [
+      'It is used for styling components',
+      'It manages routing',
+      'It assists in running and managing asynchronous tasks outside the Angular zone to facilitate efficient change detection',
+      'It is used for animation',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'NgZone helps run tasks outside the Angular zone to avoid unnecessary change detection, improving application performance.',
+  },
+  {
+    id: 183,
+    text: "Describe how Angular's change detection mechanism works.",
+    options: [
+      'It uses a custom event loop',
+      'It constantly checks for changes in the DOM',
+      'It uses a tree structure with an implicit algorithm to check and update the DOM as required',
+      'It relies on external libraries',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      "Angular's change detection mechanism uses a tree of components with an implicit algorithm to detect changes and update the DOM efficiently.",
+  },
+  {
+    id: 184,
+    text: 'What are dynamic components in Angular and how are they used?',
+    options: [
+      'For creating animations',
+      'For handling routing',
+      'For creating components on the fly using ComponentFactoryResolver',
+      'For form validation',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'Dynamic components in Angular are created at runtime using the ComponentFactoryResolver, which is useful for building components dynamically based on certain conditions.',
+  },
+  {
+    id: 185,
+    text: 'Explain the difference between template-driven and reactive forms in Angular.',
+    options: [
+      'Template-driven forms use Angular directives while reactive forms use a model-driven approach for more complex scenarios',
+      'Template-driven forms are used for animations',
+      'Reactive forms do not support validation',
+      'Template-driven forms use services for form validation',
+    ],
+    correctAnswer: 0,
+    difficulty: 'advanced',
+    explanation:
+      'Template-driven forms rely on Angular directives and templates for form creation and validation, whereas reactive forms use a model-driven approach with more control over form behavior and validation.',
+  },
+  {
+    id: 186,
+    text: 'What is the purpose of the Angular Universal module?',
+    options: [
+      'To handle form validation',
+      'To provide server-side rendering capabilities',
+      'To manage state',
+      'To handle animations',
+    ],
+    correctAnswer: 1,
+    difficulty: 'advanced',
+    explanation:
+      'Angular Universal is used for server-side rendering (SSR) to improve SEO and initial page load performance.',
+  },
+  {
+    id: 187,
+    text: 'Describe the ViewChild and ContentChild decorators and their differences.',
+    options: [
+      'For routing management',
+      'For dependency injection',
+      'ViewChild is used to access child components and elements, while ContentChild is used to access projected content',
+      'For styling components',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      "ViewChild allows access to child components and elements within a component's template, while ContentChild allows access to content projected into the component via ng-content.",
+  },
+  {
+    id: 188,
+    text: 'What is the role of Angular CLI in application development?',
+    options: [
+      'To compile TypeScript code',
+      'To manage CSS styles',
+      'To streamline development tasks such as creating, testing, and deploying Angular applications',
+      'To handle routing',
+    ],
+    correctAnswer: 2,
+    difficulty: 'advanced',
+    explanation:
+      'Angular CLI (Command Line Interface) streamlines development by automating tasks like code generation, testing, building, and deployment of Angular applications.',
+  },
 ];
 export const difficultyLevels = ['beginner', 'intermediate', 'advanced'] as const;
 export type Difficulty = (typeof difficultyLevels)[number];
