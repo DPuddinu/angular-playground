@@ -1,4 +1,4 @@
-import { Question } from '../models/question.interface';
+import { Question } from '../models/questions';
 
 const BEGINNER_QUESTIONS: Question[] = [
   {

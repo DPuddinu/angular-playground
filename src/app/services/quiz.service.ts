@@ -5,6 +5,7 @@ import { Difficulty, QUESTIONS } from '../data/questions';
   providedIn: 'root',
 })
 export class QuizService {
+  
   private selectedDifficulty = signal<Difficulty>('beginner');
   private currentQuestionIndex = signal<number>(Math.floor(Math.random() * QUESTIONS[this.selectedDifficulty()].length));
   private score = signal<number>(0);
