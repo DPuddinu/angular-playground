@@ -9,6 +9,7 @@ import {
 import { interval } from 'rxjs';
 
 export const CounterStore = signalStore(
+  { providedIn: 'root' },
   withState({ count: 0 }),
   withMethods((store) => ({
     increment(): void {
