@@ -27,7 +27,7 @@ export const CounterStore = signalStore(
   })
 );
 
-// we can export this and use it on every store we need
+// we can incapsulate this logic and use it on every store we need
 export function withCounter() {
   return signalStoreFeature(
     withState({ count: 0 }),
