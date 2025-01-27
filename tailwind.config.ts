@@ -1,9 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config = {
-  content: [
-    "./src/**/*.{html,ts,css}",
-  ],
+  content: ['./src/**/*.{html,ts,css}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -27,7 +25,7 @@ const config = {
       },
     },
   },
-  plugins: [],
-} satisfies Config
+  plugins: [require('tailwindcss-primeui')],
+} satisfies Config;
 
 export default config
