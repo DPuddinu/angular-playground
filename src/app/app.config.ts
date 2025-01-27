@@ -8,6 +8,7 @@ import { provideStore } from '@ngrx/store';
 import { routes } from './app.routes';
 import { categoriesReducer } from './slices/categories/categories.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { exercisesReducer } from './slices/exercises/exercises.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     }),
     provideStore({
         categories: categoriesReducer,
+        exercises: exercisesReducer,
     }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
 ],

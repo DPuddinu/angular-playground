@@ -1,5 +1,8 @@
 import { createAction, props } from '@ngrx/store';
+import { Exercise } from './exercises.constants';
 
-type Exercise = 'squat' | 'bench press' | 'deadlift' | 'shoulder press' | 'pull up' | 'row';
-export const select = createAction('Select Exercise', props<{ payload: Exercise }>());
+export const selectExercises = createAction(
+  'Select Exercise',
+  props<{ payload: Exercise[] }>()
+);
 export const reset = createAction('Reset Exercise');

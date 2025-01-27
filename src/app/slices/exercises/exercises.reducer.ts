@@ -1,10 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { select, reset } from './exercises.actions';
+import { selectCategory } from '../categories/categories.actions';
+import { reset } from './exercises.actions';
+import { exercises } from './exercises.constants';
 
-export const initialState = '';
+export const initialState: string[] = [];
 
 export const exercisesReducer = createReducer(
   initialState,
-  on(select, (_state, action) => action.payload),
-  on(reset, (_state) => '')
+  on(selectCategory, (_state, { payload }) => exercises[payload]),
+  on(reset, () => initialState)
 );
